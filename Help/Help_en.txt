@@ -1,0 +1,159 @@
+
+<span foreground='red'>WARNING: there is still no english Translation of the actual Help-File avialable (0.4.5), so try to get any help from the old file or read the actual german one (if you have any problems to know whats going on, feel free to contact me)...
+</span>
+<big><b><u>RETicker v. 0.4.3</u></b></big>
+
+Hello, this is the introduction for the news ticker RETicker
+Read carefully before having fun.
+
+The:
+
+I.	installation
+II.	function
+III.	operation
+IV.	details of the options
+
+I'm always grateful for notes and bug messages (this is my first python program) or offers of translations. Send any feeback to:
+rene_ejury at gmx dot net
+
+<b><u>I. installation</u></b>
+
+The installation is quite simple, because the actual version of the RETicker already includes the necessary ROXLib (here as a light patch version 2.9.12).  Just unpack the file to start. A python interpreter must be installed on your computer.
+
+checking signature:
+<span font_family='monospace'>#>gpg Ticker_0.4.2.tgz.sig</span>
+untar the programm:
+<span font_family='monospace'>#>tar xfz Ticker_0.4.3.tgz</span>
+
+<u>The 3 possibilities to start the program:</u>
+1. click on the Ticker_0.4.3 icon in the ROX-Filer
+
+2. drag the symbol Ticker_0.4.3 onto the main panel from the ROX-Filer
+
+3. start the program in a shell console
+	<span font_family='monospace'>#>./AppRun --help</span>
+
+<b><u>II. function</u></b>
+
+RETicker is a news ticker widget that downloads news headlines from selected sites, and displays them on the screen periodically.
+The RETicker was written by me for the ROX-Desktop but should work on other windowmanagers. A friend asked me whether there was anything like knewsticker for ROX and so I decide to write one for him. 
+The RETicker shows news from xml formatted rss/rdf-newsfeeds one by one and also offers the possibility of viewing these in a browser. The RETicker contains an overview window which shows all <i>cached</i> news.
+
+<u>II.a. basics</u>
+The basic function consists in the reading of xml-formatted rss/rdf-newsfeeds and show the titles in a window or applet. A click on this opens the link in a browser.
+
+<u>II.b. news or olds?</u>
+A special feature of the RETicker is the possibility to define when news becomes old. There are different methods of defining this:
+
+i) when fetched every news item is given a time stamp and considered old after a defined time is exceeded.
+
+ii) news items are declared old after they have been shown a defined number of times. 
+
+iii) some newsfeeds that contain their own time stamps. These can also be used to define when they have gone out of date.
+
+iv) news items are defined as old once viewed in a browser
+
+The news items are cached locally so if you are offline cached news will still be eventually defined as old.
+
+<b><u>III. operation</u></b>
+
+<u>III.a. Shell options</u>
+--help			a short help
+-v or -verbose	verbose mode
+--config x 		configuration x is of use,
+				if x not exiting,
+				creating config x
+
+<u>III.b. ticker options</u>
+The ticker can be used with mouse clicks:
+left button on news opens news in a browser 
+right button on news goes to the next message
+left button on icon opens news-site in a browser
+right button on icon opens the menu
+
+
+<u>III.c. Overview window -options</u>
+All cached news items are shown in the overview window. Clicking with the left mouse button on these news items opens their associated web pages, clicking with the right button opens an info window, which contains more information on the message. Different colors stand for the different status of the messages (colors are adaptable):
+
+
+<span foreground='#880000'>new news</span>
+<span foreground='#000000'>old News</span>
+<span foreground='#666666'>cached news, be not shown on the ticker</span>
+
+The data shown follows:
+<span foreground='#880000'>fetched Don 11:16 [Don 10:04] [3x] revolutionary new Ticker</span>
+The first date shows, when the message was fetched, second (only with time stamp for the messages) indicates the time stamp of the message and [3x] stands here for the fact that the message was indicated 3 times in the ticker already.
+
+Once the fetch time of the news is activated it is displayed in the overview window, showing how often the item has been displayed and, where available, the time stamp of the message.
+
+
+<b>IV. Single overview of the options</b>
+
+<u>IV.a. Sources</u>
+i) News-Age options
+How is the News to age? This can be done by either setting the maximum number of minutes that the news item remains current or by setting the ammount of times the news items are displayed befor being considered old. (value 0 ignores the respective option)
+
+ii) Edit News-Sources
+This menu contains the main configuration of the News sources.
+
+Buttons
+Changes within this menu are only valid after the refresh button has been clicked. Further Buttons permits the adding and deleting of news sources.
+
+source html-address
+Here is the url address of the news sources (for example http://slashdot.org/slashdot.rdf)Important: You must activate (green) or deactivate (red)the left button for this source.
+
+Icon html-address
+This field contains the address Icons, as default in the favicon.ico file from the root directory of the SOURCE HTML address. The button is used to store this file in the local cache. Otherwise, if the file in the local cache is not found, it will be taken from the source URL.
+
+
+max. Number of News to show in Ticker
+This sets the maximum number of News items which can be shown on the Ticker.
+
+
+[ticker provides date info]
+If news the time stamp has, it can be used for the determination of the age of the News
+
+<b> Attention, do not forget, to activate the source by presses of the red Buttons</b>
+
+<u>IV.b. Layout</u>
+i) Color of News-Label
+Here you can change the color of the News text in the Ticker.
+
+ii) Window Transparency
+Here you can select a background image.
+
+iii) Window-Size
+ The window size of the Tickers can be set here. It is important that the static value in the panel is set so as not to cover other applications.
+
+<u>IV.c. Overview-Window</u>
+i) Special Info
+If selected, numerical data or text is placed in the overview window, displaying how often the messages have already been shown in the ticker.
+
+ii) Layout
+Here you can change the color of the different messages (new, old, cached)
+
+<u>IV.d. Image-ToolTip</u>
+The information shown above the Tickerscan icon can be activated/deactivated.
+
+<u>IV.e. Label-ToolTip</u>
+The information shown over the news message  can be activated/deactivated.
+
+<u>IV.f. Fetch Options</u>
+i) Time options
+Here you can determine the time the Ticker takes to move to the next Message and the time required until new News is fetched.
+
+ii) Notify fetching-process
+If none of these options are selected, news items are fetched in the background.
+If ' text + SiteIcon 'is selected, a reference text with the Newstickers respective Icon appears.
+If ' Fetchicon ' is selected a special Icon is shown when news is fetched- even if the other option is selected.
+
+<u>IV.g. diverse</u>
+
+i) default Cache-Directorys
+These directory's are set automatically and contain the newscache and local copies of the Icons.
+
+<u>IV.g. Help</u>
+this help 
+
+I hope that this introduction is sufficient. Have Fun reading the news!
+Rene

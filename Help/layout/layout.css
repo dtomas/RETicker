@@ -1,0 +1,172 @@
+/* css default style*/
+body { 
+	font: 12pt georgia, serif;
+	background-color:#ffffdd;
+	margin: 0px; 
+	}
+li {
+	min-width: 350px;
+	padding: 4px; 
+	}
+p { 
+	margin-top: 10px; 
+	margin-bottom: 10px;
+	padding: 10px; 
+	text-align: justify;
+	}
+h1 { 
+	font: bold 13pt georgia, serif; 
+	font-weight:bold;
+	margin: 1cm 0cm 0.5cm 0cm;
+	font-size:large;
+	}
+h2 { 
+	font: bold 12pt georgia, serif;  
+	font-weight:bold;
+	margin: 1cm 0cm 0.5cm 1cm;
+	font-size:medium;}
+h3 { 
+	font: italic bold 12pt georgia, serif; 
+	font-weight:normal;
+	margin: 1cm 0cm 0.5cm 2cm;
+	font-size:medium;
+	}
+h4{
+	font-weight:normal;
+	margin: 0.5cm 0cm 0.5cm 2cm;
+	}
+a:visited, a:link { 
+	font-weight: normal; 
+	text-decoration: none; 
+	color: #660000;
+	}
+a:hover, a:active { 
+	text-decoration: underline; 
+	color: #dd0000;
+	}
+
+/* specific divs */
+#container { 
+	margin: 0px; 
+	}
+#titel { 
+	float: left;
+	position: absolute;
+	background: url(../images/window_background.png) repeat; 
+	min-width: 150px;
+	left: 5px;
+	top: 5px;
+	padding: 10px 10px 10px 10px;  
+	}
+#img { 
+	clear:right;
+	float:right;
+	padding: 10px 10px 10px 10px;  
+	}
+#inhalt { 
+	background: url(../images/window_background.png) repeat; 
+	position: absolute;
+	float:right;
+	padding: 5px;
+	font-size: small;
+	min-width: 150px;
+	right: 5px;
+	top: 5px;
+	background-color:#eeeeee;
+	}
+#content { 
+	text-align: justify;
+	min-width: 470px;
+	padding: 50px 100px 50px 100px;  
+	}
+#navigation {	
+	clear:right;
+	position:inherit;
+	left: 5px;
+	right: 5px;
+	bottom: 5px;
+	background: url(../images/window_background.png) repeat; 
+	padding: 10px 10px 10px 10px;  
+	}
+#last {
+	clear:right;
+	width: 350px;
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	font-size: x-small;
+	background: url(../images/window_background.png) repeat; 
+	padding: 10px 10px 10px 10px;  
+	}		
+
+.tutor { 
+	background-color: #222222;
+	min-width: 40px;
+	position:relative;
+	margin: 20px;
+	padding: 10px 10px 10px 10px;  
+	}
+.img { 
+	clear:right;
+	float:right;
+	padding: 10px 10px 10px 10px;  
+	}
+.sidenote{
+	font: italic 10pt arial, sans-serif; 
+	color: #660000;
+	}
+.comment{
+	color: #aaaaaa;
+	}
+.shell_code{
+	font: 11pt "courier new", monospace;
+	color: #eeeeee;
+	}
+.link{
+	padding: 50px;  
+	}
+.mark{
+	color: #770000;
+	font-weight:bold;
+	}
+.content-list{
+	list-style-type:upper-roman;
+	}
+.content-I{
+	}
+.content-II{
+	font-size: 11px;
+	padding: 2px;
+	}	
+	
+.msg_window{
+	width:250px;
+	background-color: #eeeeee;
+	padding: 5px;
+	margin: 5px 30px 5px 30px;
+	}
+
+.new_msg{color:#880000}
+.old_msg{color:#000000}
+.cached_msg{color:#666666}
+
+.date_info{color:#008000}
+
+.table{
+	clear:right;
+	background-color: #eeeeaa;
+	padding: 10px;  
+	}
+.table_data{
+	text-align: left;
+	padding: 5px;  
+	}
+.inhalt{
+	padding: 0px; 
+	}
+.inhalt_shown{
+	font-weight: bold;
+	}
+.titel
+{margin:0px}
+

@@ -1,0 +1,350 @@
+<options>
+  <section title='News-Sources'>
+    <frame label='Edit News-Sources'>
+      	<tickerconf name='sources'>
+	</tickerconf>
+    </frame>
+  </section>
+  <section title='Times / Aging of News'>
+    <frame label='Time to show a single message'>
+      <hbox>
+      <label></label>
+<label></label>
+<label></label>
+<numentry name='update_time' min='1' max='1000' step='1'>
+      	Time to wait bevor displaying next message in Ticker
+      </numentry>
+      <label>seconds</label>
+      </hbox>
+</frame>
+    <frame label='Maximal age in min. after fetching'>
+	<hbox>
+<label>Most news feeds don't have any timestamps to decide
+how old the messages you are get from there.
+Therefore the actual way to decide how old a message is,
+is to give every message a timestamp while fetching it.
+Set the time in minutes after fetching a message, till
+it is marked as old:</label>
+</hbox>
+<label></label>
+<hbox>
+<label></label>
+<label></label>
+<label></label>
+<numentry name='news_age' min='0' max='1000' step='1'>
+      	maximal age of messages in minutes
+      </numentry>
+<label>minutes / set 0 to ignore</label>
+</hbox>
+    </frame>
+    <frame label='Maximal times to show a single message'>
+	<hbox>
+<label>Another way to decide if a message is old is to
+count, how often it was actually shown in RETicker.
+Set how often to show a single message:</label>
+</hbox>
+<label></label>
+<hbox>
+<label></label>
+<label></label>
+<label></label>
+      <numentry name='news_showcount' min='0' max='1000' step='1'>
+      	maximal times to show message
+      </numentry>
+<label>times / set 0 to ignore</label>
+</hbox>
+    </frame>
+  </section>
+  <section title='Ticker-Layout'>
+    <frame label='Colors'>
+      	<hbox>
+	<colour name='text_color' label='Text Color'>
+		set the Color of the News-Text
+	</colour>
+	<colour name='back_color' label='Background Color'>
+		set the Background-Color
+	</colour>
+	</hbox>
+    </frame>
+    <frame label='Window Style'>
+	<toggle name='transparent' label='use pseudo transparency'>You have to choose the background-image manually to use this Option</toggle>
+        <fileentry name='back_datei' label='Image-File'>Location of the background image</fileentry>
+	<toggle name='borderless' label='show borderless window'>Try to hide window decorations</toggle>
+    </frame>
+    <frame label='Window-Size'>
+    <hbox>
+    <label>(set values to -1 for dynamic size)</label>
+      </hbox>
+      <hbox>
+      <numentry name='hor_size' label='horizontal Size' min='-1' max='1000' step='1'>
+      	set horizontal Window Size
+      </numentry>
+      <label>
+      </label>
+      <numentry name='ver_size' label='vertical Size' min='-1' max='100' step='1'>
+      	set vertical Window Size
+      </numentry>
+      </hbox>
+     </frame>
+     
+  </section>
+  <section title='ToolTip (over icon)'>
+    <frame label='Configure Icon-ToolTip'>
+      	<vbox>
+	<hbox>
+	<vbox>
+	<label></label>
+	<toggle_itip name='tt_i' label='show ToolTip'></toggle_itip>
+	<label></label>
+	</vbox>
+	<label></label>
+	<label></label>
+	<label></label>
+<label>The Icon-ToolTip is only shown if
+Active-ToolTip is deactivated
+or used as a menu
+(see Active-Tooltip section)</label>
+	</hbox>
+	<label></label>
+	<label></label>
+      	<hbox>
+		<vbox>
+			<toggle_itip name='tt_i_frame' label='show Frames'></toggle_itip>
+		      	<toggle_itip name='tt_i_title' label='show Title'></toggle_itip>
+		      	<toggle_itip name='tt_i_desc' label='show Description'></toggle_itip>
+		</vbox><vbox>      	
+			<toggle_itip name='tt_i_src' label='show News-Source'></toggle_itip>
+			<toggle_itip name='tt_i_link' label='show Link'></toggle_itip>
+		      	<toggle_itip name='tt_i_ver' label='show Status'></toggle_itip>
+		</vbox>
+	</hbox>
+	<label></label>
+	<imagetip>image_tip.png</imagetip>
+	</vbox>
+    </frame>
+  </section>
+  <section title='ToolTip (over message)'>
+    <frame label='Configure Message-ToolTip'>
+	<vbox>
+	<toggle_ltip name='tt_l' label='show ToolTip'></toggle_ltip>
+	<label></label>
+	<hbox>
+		<vbox>
+		 	<toggle_ltip name='tt_l_frame' label='show Frames'></toggle_ltip>
+		      	<toggle_ltip name='tt_l_title' label='show Title'></toggle_ltip>
+		</vbox><vbox>
+			<toggle_ltip name='tt_l_link' label='show Link'></toggle_ltip>
+		      	<toggle_ltip name='tt_l_ver' label='show Version'></toggle_ltip>
+		</vbox>
+	</hbox>
+	<label></label>
+	<labeltip>label_tip_1.png</labeltip>
+	</vbox>
+    </frame>
+  </section>
+  <section title='Overview-Window (Options)'>
+	<frame label='Overview-Window'>
+	<toggle name='ov_show_age' label='show age of news'></toggle>
+	<toggle name='ov_show_stat' label='show statistical info'></toggle>
+	<toggle name='ov_msg_tip' label='show information as ToolTip'></toggle>
+	</frame>
+	<image>images/overview.png</image>
+  </section>
+  <section title='Overview-Window (Layout)'>
+	<frame label='Layout'>
+	<hbox>
+	<vbox>
+	<label>Color for new Messages</label>
+	<label></label>
+	<label>Color for old Messages</label>
+	<label></label>
+	<label>Color for Messages not shown in Ticker</label>
+	<label></label>
+	<label>Background-Color for active Newsfeeds</label>
+	<label></label>
+	<label>Background-Color for inactive Newsfeeds</label>
+	<label></label>
+	<label>Background-Color for rest of the Window</label>
+	</vbox>
+	<vbox>
+	<colour name='color_new_msg' >
+		set the Color of the News-Text
+	</colour>
+	<label></label>
+	<colour name='color_old_msg'>
+		set the Color of the News-Text
+	</colour>
+	<label></label>
+	<colour name='color_not_shown_msg'>
+		set the Color of the News-Text
+	</colour>
+	<label></label>
+	<colour name='ov_bg' >
+		set the background-color of active feeds
+	</colour>
+	<label></label>
+	<colour name='ov_bg_inactive'>
+		set the background-color of inactive feeds
+	</colour>
+	<label></label>
+	<colour name='ov_bg_stat'>
+		set the background-color of the window
+	</colour>
+	</vbox>
+	</hbox>
+	</frame>
+    <frame label='Size of Overview-Window'>
+      <hbox>
+      <numentry name='ov_hor_size' label='horizontal Size' min='1' max='1000' step='1'>
+      	horizontal Window Size
+      </numentry>
+      <label>
+      </label>
+      <numentry name='ov_ver_size' label='vertical Size' min='1' max='1000' step='1'>
+      	vertical Window Size
+      </numentry>
+      </hbox>
+    </frame>
+  </section>
+  <section title='Active-ToolTip (Options)'>
+	<frame label='Active-ToolTip'>
+	<hbox>
+	<toggle_atip name='tt_a' label='show active ToolTip'></toggle_atip>
+	<toggle_atip name='tt_a_as_menu' label='use active ToolTip as Menu'></toggle_atip>
+	</hbox>
+	<label></label>
+    <frame label='feeds to show'>
+      	<hbox>
+	<toggle name='tt_a_inactive_fd' label='show inactive Feeds'></toggle>
+	<toggle name='tt_a_fd_wo_news' label='show Feeds wihthout new messages'></toggle>
+	</hbox>
+    </frame>
+	<frame label='extra informations to show'>
+	<toggle name='tt_a_show_age' label='show age of news'></toggle>
+	<toggle name='tt_a_show_stat' label='show statistical info'></toggle>
+	<toggle name='tt_a_msg_tip' label='show information as ToolTip'></toggle>
+	</frame>
+    <activetip>active_tooltip.png</activetip>
+    </frame>
+  </section>
+<section title='Active-ToolTip (Layout)'>
+	<frame label='Colors'>
+	<hbox>
+	<vbox>
+	<label>Color for new Messages</label>
+	<label></label>
+	<label>Color for old Messages</label>
+	<label></label>
+	<label>Color for Messages not shown in Ticker</label>
+	<label></label>
+	<label>Background-Color for active Newsfeeds</label>
+	<label></label>
+	<label>Background-Color for inactive Newsfeeds</label>
+	<label></label>
+	<label>Background-Color for rest of the Window</label>
+	</vbox>
+	<vbox>
+	<colour name='tt_a_color_new_msg' >
+		set the Color of the News-Text
+	</colour>
+	<label></label>
+	<colour name='tt_a_color_old_msg'>
+		set the Color of the News-Text
+	</colour>
+	<label></label>
+	<colour name='tt_a_color_not_shown_msg'>
+		set the Color of the News-Text
+	</colour>
+	<label></label>
+	<colour name='tt_a_bg' >
+		set the background-color of active feeds
+	</colour>
+	<label></label>
+	<colour name='tt_a_bg_inactive'>
+		set the background-color of inactive feeds
+	</colour>
+	<label></label>
+	<colour name='tt_a_bg_stat'>
+		set the background-color of the tooltip
+	</colour>
+	</vbox>
+	</hbox>
+	</frame>
+	<frame label='Scrollbars'>
+	<toggle name='tt_a_hor_scrollbar' label='show horizontal Scrollbar when needed'></toggle>
+	<toggle name='tt_a_ver_scrollbar' label='show vertical Scrollbar when needed'></toggle>
+	</frame>
+    <frame label='Size of Tip-Window'>
+      <hbox>
+      <numentry name='tt_a_hor_size' label='horizontal Size' min='1' max='1000' step='1'>
+      	horizontal Window Size
+      </numentry>
+      <label>
+      </label>
+      <numentry name='tt_a_ver_size' label='vertical Size' min='1' max='1000' step='1'>
+      	vertical Window Size
+      </numentry>
+      </hbox>
+    </frame>
+  </section>
+
+
+
+  <section title='Fetch Options'>
+    <frame label='Proxy settings'>
+      <toggle name='use_proxy' label='Use Proxy to fetch news'></toggle>
+      <entry name='proxy' label='Proxy (www.someproxy.com:3128)'>Proxy Settings (you have to activate it)</entry>
+    </frame>
+    <frame label='Automated refresh'>
+      <numentry name='refresh_time' label='Time to wait bevor refetching the News in min.' min='1' max='100' step='1'>
+      	Time to wait bevor fetching news again
+      </numentry>
+    </frame>
+    <frame label='Show fetching'>
+      <toggle name='check_verbose' label='show Text and SiteIcon'>show information-text and icon of the site from where to fetch</toggle>
+      <toggle name='check_image' label='show FetchIcon -- overrides SiteIcon'>show special icon to signalize fetching</toggle>
+    </frame>
+  </section>
+  <section title='Programs and dirs'>
+    <frame label='Browser to use for displaying linked pages'>
+      <vbox>
+      <hbox><label>Program to start on left click</label></hbox>
+      <entry name='browser'>Browser to use for displaying linked pages (for instance opera)</entry>
+      </vbox>
+      <label></label>
+      <vbox>
+      <hbox><label>Options for the Program</label></hbox>
+      <entry name='br_options'>Options for the program (for instance -newpage)</entry>
+      </vbox>
+    </frame>
+    <frame label='Cache-Directorys'>
+<label>Usually there is no need to change the following
+pathes. If you like to use different instances with
+different configurations, the way to change this is
+to start RETicker with the command line option
+--config newconfig
+where newconfig is a name of your choice and changes
+the path where new configuration will be saved.
+</label>
+	<vbox>
+      <hbox><label>News-Cache File</label></hbox>
+      <entry name='xml_cache'>Where is a file to cache news</entry>
+      </vbox>
+      <label></label>
+      <vbox>
+      <hbox><label>Icon-Cache Directory</label></hbox>
+      <entry name='icon_cache_dir'>Where is a directory to cache icons</entry>
+      </vbox>
+    </frame>
+    <frame label='debug information'>
+	<numentry name='debug_mode' label='Debug Level (set 0 for off)' min='0' max='5' step='1'>
+		Debug Level (0 means off)
+	</numentry>
+   </frame>
+</section>
+  <section title='Help'>
+	<frame label='Help and Information'>
+  		<help></help>
+  	</frame>
+    </section>
+</options>

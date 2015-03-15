@@ -1,0 +1,253 @@
+
+<big><b><u>RETicker v. 0.4.5</u></b></big>
+Anleitung deutsch
+
+
+<b><u>Vorbemerkungen</u></b>
+
+Der RETicker ist ein Programm zum Anzeigen von News-Messages verschiedenster Quellen. Diese Quellen sollten rss oder rdf formatiert sein, zu den entsprechenden Standards vergleiche auch:
+	http://blogs.law.harvard.edu/tech/rss
+	http://web.resource.org/rss/1.0/
+	hhttp://www.w3.org/RDF/
+ 
+<b><u>Inhalt</u></b>
+ 
+Installation
+Funktionsweise
+Bedienung
+Optionen 
+	News-Sources
+	Times / Aging of News
+	Ticker-Layout
+	ToolTip (over icon)
+	ToolTip (over message)
+	Overview-Window (Options)
+	Overview-Window (Layout)
+	Active-ToolTip (Options)
+	Active-ToolTip (Layout)
+	Fetch Options
+	Programs and Dirs
+
+
+<b><u>I. Installation</u></b>
+
+Das Programm benötigt eine Version der ROX-Lib2 größer 1.9.13. Zum Installieren einfach das Archiv entpacken und los gehts. (Ein Python-Interpreter sollte auf eurem Rechner installiert sein)
+
+Signatur prüfen:
+<span font_family='monospace'>	#>gpg Ticker_0.4.5.tgz.sig</span>
+Programm entpacken:
+<span font_family='monospace'>	#>tar xfz Ticker_0.4.5.tgz</span>
+
+Programm-Start:
+Es gibt verschiedene Möglichkeiten das Programm zu starten:
+
+1. Im ROX-Filer auf das Symbol Ticker_0.4.5 klicken
+
+2. Das Symbol Ticker_0.4.5 aus dem ROX-Filer auf das Panel ziehen
+
+3. Das Programm in einer shell starten. 
+<span font_family='monospace'>	#>./start.py --help
+	*** RETicker v 0.4.5 ***
+	usage: ./start.py [--config X][--verbose|-v][--help]
+	--config X start with Konfiguration X
+	use any Name for X
+	--verbose be more verbose
+	--help shows this help ;)
+	Please report any Problems (see README.txt)
+</span>
+
+
+<b><u>II. Funktionsweise</u></b>
+
+Der RETicker wurde von mir für den ROX-Desktop geschrieben, funktioniert aber möglicherweise auch auf anderen Umgebungen, allerdings dort wohl nicht als Panel-Applet.
+
+Der RETicker besteht aus drei Komponenten, dem Tickerfenster selbst, einem Active-ToolTip sowie einem Übersichtsfenster. Nach dem Starten sollte das Tickerfenster erscheinen. Der Active-ToolTip sollte angezeigt werden, wenn mit der Maus über das Icon im Tickerfenster gefahren wird. Das Übersichtsfenster kann über das Menu (klick mit rechter Taste auf das Icon) oder den Active-Tooltip gestartet werden.
+
+<u>News oder Olds?</u>
+
+Das besondere an dem vorliegendem Ticker ist die Möglichkeit, nach Nutzerkriterien zu entscheiden, ob eine Nachricht alt oder neu ist (im Ticker angezeigt wird oder nicht). Zur Bestimmung der Aktualität gibt es dabei verschiedene Möglichkeiten:
+
+jede Nachricht wird beim Abholen mit einem Zeitstempel versehen und wenn eine bestimmte Zeit überschritten ist, wird die Nachricht nicht mehr angezeigt.
+
+jede Nachricht wird mindestens x-mal angezeigt, danach wird sie als zu alt deklariert.
+
+einige Newsfeeds enthalten Zeitstempel der einzelnen Meldungen. Bei Nachrichten dieser Quellen kann entscheiden werden, wie lange Nachrichten als aktuell gelten und angezeigt werden.
+
+[wird eine News zur Anzeige im Browser angeklickt, wird diese danach als alt gewertet.]
+
+Da die Nachrichten lokal gecacht werden, kann dieses 'Altern' auch bei Unterbrechungen der Internetverbindung (zum Beispiel über Nacht) erfolgen.
+
+
+<b><u>III. Bedienung</u></b>
+
+<u>Shell-Optionen</u>
+
+kurze Hilfe ausgeben:
+<span font_family='monospace'>	#>./start --help</span>
+
+debugging-messages aktivieren
+<span font_family='monospace'>	#>./start -v</span>
+
+starte mit Konfiguration X (wenn X nicht vorhanden ist, wird X neu angelegt)
+<span font_family='monospace'>	#>./start --config X</span>
+
+<u>Ticker</u>
+ 
+Der Ticker zeigt jeweils eine Meldung an und wechselt nach einer einstellbaren Zeitspanne zur nächsten Nachricht. Dies wird in einer Schleife wiederholt. Neben der Nachricht wird ein Icon der news-Quelle angezeigt.
+
+Der Ticker kann mit der Maus bedient werden. Dabei werden unterschiedliche Aktionen ausgelöst, je nachdem, ob sich der Mauszeiger über der Nachricht oder dem Ticker-Icon befindet.
+
+Maus über dem Icon: 
+Klick linke Taste:
+	öffne Webseite des Newstickers im Browser	
+
+Klick rechte Taste:
+	zeige Menu oder Active-ToolTip	
+
+Mausrad:
+	scrolle vorwärts und rückwärts durch die News-Quellen
+
+Maus über der Nachricht: 
+Klick linke Taste:
+	öffne Webseite zur Nachricht im Browser	
+
+Klick rechte Taste:
+	zeige nächste Nachricht an	
+Mausrad:
+	scrolle vorwärts und rückwärts durch die Nachrichten	
+
+Ausserdem können während der Anzeige des Menus (Rechtsklick auf Icon, Active-ToolTip nicht als Menu konfiguriert) Tastaturkürzel für die einzelnen Punkte festegelegt werden - einfach die entsprechende Taste über dem Menupunkt drücken. Diese funktionieren allerdings nur, wenn der Ticker als Einzelanwendung, nicht als Applet gestartet wurde.
+
+<u>Active-ToolTip</u>
+ 
+Der Active-ToolTip trägt diesen Namen, weil er wie ein ToolTip erscheint, wenn sich die Maus über dem Icon aufhält. Solange die Maus über dem Active-ToolTip ist, bleibt dieser angeziegt. In den Optionen kann der Active-ToolTip auch als Menu konfiguriert werden, dann wird er immer nach einem Rechtsclick auf das Icon geöffnet.
+Der Active-ToolTip enthält alle Messages des aktuellen newsfeeds und erlaubt, diesen feed zu aktivieren/deaktivieren oder die Nachrichten dieser Quelle aufzufrischen. Die einzelnen Nachrichten sind mit einem Farbcode versehen, der angibt, ob Nachrichten neu (werden noch im Ticker gezeigt) oder alt sind (siehe auch den nächsten Abschnitt). Zusätzlich werden Nachrichten angezeigt, welche sich im cache befinden aber nicht im Ticker angezeigt werden, weil deren Rangposition die maximal anzuzeigende Nachrichtenzahl überschreitet.
+Der Active-TooTip erlaubt weiterhin, zwischen den verschiedenen news-feeds zu blättern. In den Optionen kann dabei eingestellt werden, ob ebenso inactive news-feeds oder feeds, welche keine neuen Nachrichten enthalten, angezeigt werden sollen.
+
+<u>Übersichts-Fenster</u>
+ 
+Im Übersichtsfenster werden alle gecachten News angezeigt. Ein Klick mit der linken Taste auf diese News öffnet die zugehörigen Webseiten. Dabei stehen verschiedene Farben für den unterschiedlichen Status der Nachrichten (Diese Farben sind anpassbar):
+
+<span foreground='#880000'>neue Nachricht</span>
+<span foreground='#000000'>alte Nachricht</span>
+<span foreground='#666666'>Nachricht im Cache</span>
+
+
+Wenn aktiviert, wird im Übersichtsfenster zusätzlich die Abholzeit der News, wie oft diese bereits angezeigt wurde und wenn vorhanden der Zeitstempel der Nachricht vermerkt.
+Die der Nachricht vorangestellten Daten sind dabei wie folgt zu interpetieren:
+
+<span foreground='#880000'>Don 11:16 [Don 10:04] [3x]</span>
+
+Die erste Zeitangabe zeigt, wann die Nachricht abgeholt wurde, die zweite (die nur bei Tickern mit Zeitstempel für die Nachrichten angezeigt wird) zeigt den Zeitstempel der Nachricht an und das [3x] steht hier dafür, dass diese Nachricht bereits 3 mal im Ticker angezeigt wurde.
+
+
+<b><u>IV. Einzelübersicht über die Optionen</u></b>
+
+<u>IV.I. News-Sources</u>
+
+Dieser Bereich enthält alle Einstellungen, die direkt mit einer News-Quelle zusammenhängen. Der in der Abbildung runde Button (hier grün) dient zum aktivieren oder deaktivieren der Quelle - per default sind die Quellen immer aktiviert. 
+ 
+source http-address
+Hier wird die Quelle der zu beziehenden Nachrichten angegeben. Das Protokoll (http) muss dabei nicht angegeben werden. Diese Adresse dient gleichzeitig zur eindeutigen Identifikation der Quelle - zwei gleiche Quellen (wozu auch immer) sind darum nicht möglich.
+Der Eintrag einer News-Quelle ist alles, was für eine erste Nutzung des Tickers notwendig ist.
+ Eine Änderung dieser Quell-Adresse erstellt immer eine neue News-Quelle, die gecachten Nachrichten der alten News-Quelle gehen dabei verloren. Wenn im Feld für das zu verwendende Icon kein besonderer Eintrag gewählt wurde, wird dieser wieder anhand der News-Source-Adresse erstellt. Ist eine neue News-Quelle hinzugefügt worden (was erst nach ca. 2 Sekunden ohne Veränderung der Adresse passiert), wird versucht, Nachrichten von dieser Quelle zu beziehen. Ein Fehlschlagen dieses Versuchs wird gemeldet. 
+
+Icon Configuration
+(http-address and local address)
+Jeder News-Source ist ein Icon zugeordnet, welches im im Ticker sowie im News-Source-Dialog-Tab angezeigt wird. Per default wird dabei als http-Adresse auf dem News-Server nach der Datei favicon.ico gesucht und diese genutzt. Diese wird, wenn keine lokale Kopie gefunden wurde, automatisch vom Server bezogen und per default im lokalen Cache unter einem von der Quelle abgeleiteten Namen gespeichert (Dies wird nach ca. 2 Sekunden ohne Veränderung des Eintrags in http-address gestartet). Wird unter der lokalen Adresse ein Icon gefunden, wird kein Versuch unternommen, ein Icon vom Server zu beziehen. Als Icon kann daher auch jedes andere lokal vorhandene Bild genutzt werden, indem dessen Adresse bei 'local address' eingegeben bzw. ausgewählt wird. 
+
+Ticker Configuration
+Hier kann eingestellt werden, wieviel Nachrichten der News-Quelle maximal im Ticker angezeigt werden sollen. Im lokalen Cache befinden sich jedoch alle Nachrichten, um bei folgenden Aktualisierungen diese bereits veralteten Nachrichten wiederzuerkennen. Wenn diese Beschränkung nicht gewünscht wird, muss der Wert hier auf einen unerreichbar hohen Wert gesetzt werden. 
+
+<span foreground='#008000'>[ticker provides date info]</span>
+Wenn die Newsquelle den einzelnen Nachrichten Zeitstempel zuordnet (dc:date-field nach dublin-core-standard), wird dieser Bereich der Konfiguration angezeigt. In diesem Fall kann hier eingestellt werden, wieviel Minuten nach ihrem Erstellungsdatum Nachrichten noch als aktuell gelten sollen und im Ticker angezeigt werden.
+
+<u>IV.II. Times / Aging of News</u>
+
+Time to show a single message
+Hier kann die Zeit angegeben werden, die eine einzelne Nachricht im Ticker angezeigt wird. Danach wird, sofern vorhanden, zur nächsten Nachricht - möglicherweise einer nächsten Quelle - gewechselt. 
+
+Maximal age in min. after fetching
+Die meisten News-Quellen stellen Nachrichten-Feeds zur Verfügung, welche den einzelnen Nachrichten keine Zeitstempel zuordnen. Um zu entscheiden, wann eine Nachricht veraltet ist, wird darum jede Nachricht beim (ersten) Abholen mit einem Abhol-Zeitstempel versehen. Hier kann nun eingestelt werden, wieviel Minuten nach dem Abholen vergehen dürfen, bis eine Nachricht als nicht mehr aktuell gilt und diese Nachricht nicht mehr im Ticker angezeigt wird. 
+
+Maximal times to show a single message
+Ein anderer Weg, zu bestimmen, wann einen Nachricht nicht mehr aktuell ist, ist es, die Anzahl ihrer Präsentationen im Ticker zu zählen. Hier kann darum eingestellt werden, wie oft einen Nachricht maximal angezeigt werden soll, bevor sie als nicht mehr aktuell gilt.
+
+<u>IV.III. Ticker-Layout</u>
+
+Colors
+Hier kann die Farbe des News-Textes (Text-Color) und des Hintergurndes (Background Color) des Tickers eingestellt werden. Die Einstellung der Hintergrundfarbe belibt dabei ohne Effekt, wenn im folgenden Bereich der pseudo-transparency Modus aktiviert wird. 
+
+Window Transparency
+Um das Tickerfenster 'durchsichtig' zu machen, muss hier neben der Aktivierung der entsprechenden Option auch das Hintergrundbild, welches auf dem Desktop dargestellt wird (in Bildschirmgrösse) angegeben werden. 
+
+Window-Size
+Hier kann die Fenstergrösse des Tickers eingestellt werden. Dabei steht die Einstellung auf einen Wert von -1 für eine dynamische Größenanpassung anhand der Nachrichten. Eine absolute Festlegung der Größe ist beispielsweise sinnvoll, um im Panel andere Starter etc. nicht zu überdecken. Größenveränderungen am Tickerfenster selbst werden in diese Werte übernommen. 
+
+<u>IV.IV. ToolTip (over icon)</u>
+
+Configure Icon-ToolTip
+Hier kann der ToolTip, welcher angezeigt wird, wenn die Maus über dem Icon des Tickers verweilt, konfiguriert werden. Dieser wird allerdings nur angezeigt, wenn 'show ToolTip' aktiviert ist und der Active-ToolTip deaktiviert oder als Menu konfiguriert wurde.
+Die Änderungen in den weiteren Optionen werden in ihren Effekten auf das ToolTip-Layout in der angezeigten Vorschau verdeutlicht.
+Wird 'show Status' ausgewählt, werden unter der aktuellen Programmversion einige Zusatzinformationen angezeigt. Diese sind wie folgt zu entschlüsseln:
+
+feeds:x[all]x[active]/msg:x[all]x[active]x[new]	
+Die x bedeuten in ihrer Reihenfolge:
+Zahl aller konfigurierten News-Quellen/Zahl aller aktiven News-Quellen/Zahl aller lokal vorhandenen Nachrichten/Zahl aller Nachrichten aktiver Quellen/Zahl aller aktuellen Nachrichten
+
+<u>IV.V. ToolTip (over message)</u>
+
+Configure Message-ToolTip
+Hier kann der ToolTip, welcher angezeigt wird, wenn die Maus über der Nachricht im Ticker verweilt, konfiguriert werden. Wiederum werden die Änderungen in den weiteren Optionen in ihren Effekten auf das ToolTip-Layout in der angezeigten Vorschau verdeutlicht.
+
+<u>IV.VI. Overview-Window (Options)</u>
+
+Overview-Window
+Dieser Bereich erlaubt, zusätzliche Informationen zur Anzeige im Übersichts-Fenster zu bringen. Zum einen können die Zeitstempel (Abholzeit und, wenn vorhanden, der dc:date Zeitstempel der Erstellung der Nachricht) angezeigt werden ('show age iof news'). Ist der Schalter 'show statistical info' aktiviert, wird angezeigt, wie of die nachricht bereits im Ticker gezeigt wurde.
+Ist der folgenden Schalter 'show information as ToolTip' deaktiviert, werden diese Informationen vor den eigentlichen Nachrichten-Titel geschrieben. Sollen diese Informationen hingegen als ToolTip angezeigt werden, wird in diesem ToolTip, wenn vorhanden, zusätzlich eine weitergehende Erläuterung der Nachricht angezeigt.
+
+<u>IV.VII. Overview-Window (Layout)</u>
+
+Layout
+Hier können die Farben, welche im Übersichtsfenster zur Verdeutlichung der verschiedenen Zustände einzelner Nachrichten existieren, geändert werden. 
+Size of Overview-Window
+Die Größe des Übersichtsfensters kann hier manuell angegeben werden. Größen-Veränderungen am Fenster selbst werden in diese Werte übernommen.
+
+<u>IV.VIII. Active-ToolTip (Options)</u>
+
+Active-ToolTip
+Dieser Bereich ermöglicht einzustellen, ob der Active-ToolTip angezeigt werden soll. Wenn ja, kann entscheiden werden, ob dies als Ersatz des Icon-ToolTips (default) oder als Ersatz des Menus, welches bei Rechtsklick über dem Ticker-Icon erscheint, geschehen soll. 
+
+feeds to show
+Im Active-ToolTip wird beim Einblenden immer derjenige News-Feed gezeigt, aus welchem die aktuell im Ticker angezeigte Nachricht stammt. Hier kann nun eingestelt werden, welche News-Quellen beim Blättern mit den Buttons des Active-ToolTip angezeigt werden. 
+
+extra informations to show
+Ebenso wie beim Übersichtsfenter erlaubt dieser Bereich, zusätzliche Informationen zur Anzeige im Active-ToolTip zu bringen. Zum einen können die Zeitstempel (Abholzeit und, wenn vorhanden, der dc:date Zeitstempel der Erstellung der Nachricht) angezeigt werden ('show age iof news'). Ist der Schalter 'show statistical info' aktiviert, wird angezeigt, wie of die Nachricht bereits im Ticker gezeigt wurde.
+Ist der folgenden Schalter 'show information as ToolTip' deaktiviert, werden diese Informationen vor den eigentlichen Nachrichten-Titel geschrieben. Sollen diese Informationen hingegen als weiterer, 'klassischer' ToolTip angezeigt werden, wird in diesem 'klassischen' ToolTip, wenn vorhanden, zusätzlich eine weitergehende Erläuterung der Nachricht angezeigt.
+
+<u>IV.IX. Active-ToolTip (Layout)</u>
+
+Colors
+Hier können die Farben, welche im Active-ToolTip zur Verdeutlichung der verschiedenen Zustände einzelner Nachrichten existieren, geändert werden. 
+
+Scrollbars
+Wenn gewünscht, kann hier angegeben werden, ob im Active-ToolTip bei Bedarf ScrollBars angezeigt werden. Werden diese Optionen deaktiviert, kann der angezeigte Ausschnitt auch nicht mit der Maus bewegt werden. 
+
+Size of Tip-Window
+Hier kann die Größe des Active-ToolTip angegeben werden. Wird die Größe des Active-ToolTip direkt am Active-ToolTip-Fenster verändert, werden die Werte hierher übernommen.
+
+<u>IV.X. Fetch Options</u>
+
+Proxy settings
+Wenn über einen http-proxy auf die News-Quellen zugegriffen werden soll, kann dies hier aktiviert werden. Das protokoll ('http') muss dabei nicht angegeben werden. 
+
+Automated refresh
+Diese Einstellung legt fest, wie oft auf den News-Quellen nach neuen Nachrichten geschaut wird. Diese sollte nicht zu gering gewählt werden, da einige News-Server sonst unter der Last der Anfragen zusammenbrechen könnten. Um dies zu vermeiden, werden Nutzer, die so die Server stressen, vorübergehend geblockt, so beispielsweise bei slashdot.org. 
+
+Show fetching
+Diese Einstellung legt fest, ob das Abholen von neuen Nachrichten 'leise' im Hintergrund erfolgen soll oder ob dies im Ticker vermerkt werden soll. Wird 'show Text and SiteIcon' gewählt, wird im Nachrichtenbereich des Tickers vorübergehend eine Information eingeblendet und als Icon jenes der abzufragenden Quelle angezeigt. Wird die Option 'show Fetchicon' gewählt, wird beim refreshen der News-Quellen ein spezielles 'Fetchicon' eingeblendet. Sind beide Schalter aktiviert, wird das 'Fetchicon' bevorzugt.
+
+<u>IV.XI. Programs and Dirs</u>
+
+Browser to use for displaying linked pages
+Hier kann der Browser eingestellt werden, mit welchem ihr von den Nachrichten verlinkte Webseiten anzeigen wollt. Wenn ihr dem Programm vor dem Namen des Links noch besondere Optionen übergeben wollt, ermöglicht dies ein zweiter Eintrag.

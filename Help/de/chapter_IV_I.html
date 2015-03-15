@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Anleitung RETicker 0.4.5: IV. Optionen</title>
+<meta http-equiv='Content-Type' content='text/html; charset=us-ascii' />
+<link rel='stylesheet' type='text/css' href='../layout/layout.css' />
+</head>
+<body>
+<div id="titel">
+<h1 class='titel'>RETicker v. 0.4.5</h1>
+Anleitung deutsch</div>
+<div id='inhalt'><span class="inhalt"><a href="index.html">Inhalt</a></span><br />
+<span class="inhalt"><a href="chapter_III.html">&lt;&lt; III. Bedienung</a></span><br />
+<span class="inhalt_shown">IV. Optionen</span><br />
+<span class="inhalt"><a href="chapter_IV_II.html">&gt;&gt; IV.I. Times / Aging of News</a></span></div>
+<div id='content'>
+<h2><a name="part_IV" id="part_IV">IV. Einzel&uuml;bersicht &uuml;ber die Optionen</a></h2>
+<h3>IV.I. News-Sources</h3>
+Dieser Bereich enth&auml;lt alle Einstellungen, die direkt mit einer News-Quelle zusammenh&auml;ngen. Der in der Abbildung runde Button (hier gr&uuml;n) dient zum aktivieren oder deaktivieren der Quelle - per default sind die Quellen immer aktiviert. <span class='img'><img src="../images/options_1.png" alt="OptionsDialog_Page1" /></span>
+<h4>source http-address</h4>
+Hier wird die Quelle der zu beziehenden Nachrichten angegeben. Das Protokoll (http) muss dabei nicht angegeben werden. Diese Adresse dient gleichzeitig zur eindeutigen Identifikation der Quelle - zwei gleiche Quellen (wozu auch immer) sind darum nicht m&ouml;glich.<br />
+Der Eintrag einer News-Quelle ist alles, was f&uuml;r eine erste Nutzung des Tickers notwendig ist.<br />
+<span class="sidenote">Eine &Auml;nderung dieser Quell-Adresse erstellt immer eine neue News-Quelle, die gecachten Nachrichten der alten News-Quelle gehen dabei verloren. Wenn im Feld f&uuml;r das zu verwendende Icon kein besonderer Eintrag gew&auml;hlt wurde, wird dieser wieder anhand der News-Source-Adresse erstellt. Ist eine neue News-Quelle hinzugef&uuml;gt worden (was erst nach ca. 2 Sekunden ohne Ver&auml;nderung der Adresse passiert), wird versucht, Nachrichten von dieser Quelle zu beziehen. Ein Fehlschlagen dieses Versuchs wird gemeldet.</span>
+<h4>Icon Configuration<br />
+(http-address and local address)</h4>
+Jeder News-Source ist ein Icon zugeordnet, welches im im Ticker sowie im News-Source-Dialog-Tab angezeigt wird. Per default wird dabei als http-Adresse auf dem News-Server nach der Datei favicon.ico gesucht und diese genutzt. Diese wird, wenn keine lokale Kopie gefunden wurde, automatisch vom Server bezogen und per default im lokalen Cache unter einem von der Quelle abgeleiteten Namen gespeichert (Dies wird nach ca. 2 Sekunden ohne Ver&auml;nderung des Eintrags in http-address gestartet). Wird unter der lokalen Adresse ein Icon gefunden, wird kein Versuch unternommen, ein Icon vom Server zu beziehen. Als Icon kann daher auch jedes andere lokal vorhandene Bild genutzt werden, indem dessen Adresse bei 'local address' eingegeben bzw. ausgew&auml;hlt wird.
+<h4>Ticker Configuration</h4>
+Hier kann eingestellt werden, wieviel Nachrichten der News-Quelle maximal im Ticker angezeigt werden sollen. Im lokalen Cache befinden sich jedoch alle Nachrichten, um bei folgenden Aktualisierungen diese bereits veralteten Nachrichten wiederzuerkennen. Wenn diese Beschr&auml;nkung nicht gew&uuml;nscht wird, muss der Wert hier auf einen unerreichbar hohen Wert gesetzt werden.
+<h4 class='date_info'>[ticker provides date info]</h4>
+Wenn die Newsquelle den einzelnen Nachrichten Zeitstempel zuordnet (dc:date-field nach dublin-core-standard), wird dieser Bereich der Konfiguration angezeigt. In diesem Fall kann hier eingestellt werden, wieviel Minuten nach ihrem Erstellungsdatum Nachrichten noch als aktuell gelten sollen und im Ticker angezeigt werden.</div>
+<div id="navigation"><span class="inhalt"><a href="chapter_III.html">III. Bedienung &lt;&lt;</a></span> <span class="inhalt_shown">IV. Optionen</span> <span class="inhalt"><a href="chapter_IV_II.html">&gt;&gt; IV.I. Times / Aging of News</a></span></div>
+</body>
+</html>

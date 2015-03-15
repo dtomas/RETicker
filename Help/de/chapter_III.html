@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Anleitung RETicker 0.4.5: III. Bedienung</title>
+<meta http-equiv='Content-Type' content='text/html; charset=us-ascii' />
+<link rel='stylesheet' type='text/css' href='../layout/layout.css' />
+</head>
+<body>
+<div id="container">
+<div id="titel">
+<h1 class="titel">RETicker v. 0.4.5</h1>
+Anleitung deutsch</div>
+<div id='inhalt'><span class="inhalt"><a href="index.html">Inhalt</a></span><br />
+<span class="inhalt"><a href="chapter_II.html">&lt;&lt; II. Funktionsweise</a></span><br />
+<span class="inhalt_shown">III. Bedienung</span><br />
+<span class="inhalt"><a href="chapter_IV_I.html">&gt;&gt; IV. Optionen</a></span></div>
+<div id='content'>
+<h2><a name="part_III" id="part_III">III. Bedienung</a></h2>
+<h3>Shell-Optionen</h3>
+<div class='tutor'><span class='comment'>kurze Hilfe ausgeben:</span><br />
+<span class='shell_code'>#&gt;./start --help</span><br />
+<br />
+<span class='comment'>debugging-messages aktivieren</span><br />
+<span class='shell_code'>#&gt;./start -v</span><br />
+<br />
+<span class='comment'>starte mit Konfiguration X (wenn X nicht vorhanden ist, wird X neu angelegt)</span><br />
+<span class='shell_code'>#&gt;./start --config X</span></div>
+<h3>Ticker</h3>
+<div class='img'><img src="../images/ticker.png" alt="Ticker-Window" /></div>
+Der Ticker zeigt jeweils eine Meldung an und wechselt nach einer einstellbaren Zeitspanne zur n&auml;chsten Nachricht. Dies wird in einer Schleife wiederholt. Neben der Nachricht wird ein Icon der news-Quelle angezeigt.<br />
+<br />
+Der Ticker kann mit der Maus bedient werden. Dabei werden unterschiedliche Aktionen ausgel&ouml;st, je nachdem, ob sich der Mauszeiger &uuml;ber der Nachricht oder dem Ticker-Icon befindet.<br />
+<ul>
+<li>Maus &uuml;ber dem Icon:
+<table class="table" summary="maus-usage_1">
+<tr>
+<td class="table_data">Klick linke Taste:</td>
+<td class="table_data">&ouml;ffne Webseite des Newstickers im Browser</td>
+</tr>
+<tr>
+<td class="table_data">Klick rechte Taste:</td>
+<td class="table_data">zeige Menu oder Active-ToolTip</td>
+</tr>
+<tr>
+<td class="table_data">Mausrad:</td>
+<td class="table_data">scrolle vorw&auml;rts und r&uuml;ckw&auml;rts durch die News-Quellen</td>
+</tr>
+</table>
+</li>
+<li>Maus &uuml;ber der Nachricht:
+<table class="table" summary="maus-usage_1">
+<tr>
+<td class="table_data">Klick linke Taste:</td>
+<td class="table_data">&ouml;ffne Webseite zur Nachricht im Browser</td>
+</tr>
+<tr>
+<td class="table_data">Klick rechte Taste:</td>
+<td class="table_data">zeige n&auml;chste Nachricht an</td>
+</tr>
+<tr>
+<td class="table_data">Mausrad:</td>
+<td class="table_data">scrolle vorw&auml;rts und r&uuml;ckw&auml;rts durch die Nachrichten</td>
+</tr>
+</table>
+</li>
+</ul>
+Ausserdem k&ouml;nnen w&auml;hrend der Anzeige des Menus (Rechtsklick auf Icon, Active-ToolTip nicht als Menu konfiguriert) Tastaturk&uuml;rzel f&uuml;r die einzelnen Punkte festegelegt werden - einfach die entsprechende Taste &uuml;ber dem Menupunkt dr&uuml;cken. Diese funktionieren allerdings nur, wenn der Ticker als Einzelanwendung, nicht als Applet gestartet wurde.
+<h3>Active-ToolTip</h3>
+<div class='img'><img src="../images/active_tooltip.png" alt="Active-ToolTip" /></div>
+Der Active-ToolTip tr&auml;gt diesen Namen, weil er wie ein ToolTip erscheint, wenn sich die Maus &uuml;ber dem Icon aufh&auml;lt. Solange die Maus &uuml;ber dem Active-ToolTip ist, bleibt dieser angeziegt. In den Optionen kann der Active-ToolTip auch als Menu konfiguriert werden, dann wird er immer nach einem Rechtsclick auf das Icon ge&ouml;ffnet.<br />
+Der Active-ToolTip enth&auml;lt alle Messages des aktuellen newsfeeds und erlaubt, diesen feed zu aktivieren/deaktivieren oder die Nachrichten dieser Quelle aufzufrischen. Die einzelnen Nachrichten sind mit einem Farbcode versehen, der angibt, ob Nachrichten neu (werden noch im Ticker gezeigt) oder alt sind (siehe auch den n&auml;chsten Abschnitt). Zus&auml;tzlich werden Nachrichten angezeigt, welche sich im cache befinden aber nicht im Ticker angezeigt werden, weil deren Rangposition die maximal anzuzeigende Nachrichtenzahl &uuml;berschreitet.<br />
+Der Active-TooTip erlaubt weiterhin, zwischen den verschiedenen news-feeds zu bl&auml;ttern. In den Optionen kann dabei eingestellt werden, ob ebenso inactive news-feeds oder feeds, welche keine neuen Nachrichten enthalten, angezeigt werden sollen.<br />
+<h3>&Uuml;bersichts-Fenster</h3>
+<div class='img'><img src="../images/overview.png" alt="Overview" /></div>
+Im &Uuml;bersichtsfenster werden alle gecachten News angezeigt. Ein Klick mit der linken Taste auf diese News &ouml;ffnet die zugeh&ouml;rigen Webseiten. Dabei stehen verschiedene Farben f&uuml;r den unterschiedlichen Status der Nachrichten (Diese Farben sind anpassbar):<br />
+<div class="msg_window"><span class='new_msg'>neue Nachricht</span><br />
+<span class='old_msg'>alte Nachricht</span><br />
+<span class='cached_msg'>Nachricht im Cache</span></div>
+<br />
+Wenn aktiviert, wird im &Uuml;bersichtsfenster zus&auml;tzlich die Abholzeit der News, wie oft diese bereits angezeigt wurde und wenn vorhanden der Zeitstempel der Nachricht vermerkt.<br />
+Die der Nachricht vorangestellten Daten sind dabei wie folgt zu interpetieren:<br />
+<div class="msg_window"><span class='new_msg'>Don 11:16 [Don 10:04] [3x]</span></div>
+Die erste Zeitangabe zeigt, wann die Nachricht abgeholt wurde, die zweite (die nur bei Tickern mit Zeitstempel f&uuml;r die Nachrichten angezeigt wird) zeigt den Zeitstempel der Nachricht an und das [3x] steht hier daf&uuml;r, dass diese Nachricht bereits 3 mal im Ticker angezeigt wurde.</div>
+<br />
+<div id="navigation"><span class="inhalt"><a href="chapter_II.html">II. Funktionsweise &lt;&lt;</a></span> <span class="inhalt_shown">III. Bedienung</span> <span class="inhalt"><a href="chapter_IV_I.html">&gt;&gt; IV. Optionen</a></span></div>
+</div>
+</body>
+</html>

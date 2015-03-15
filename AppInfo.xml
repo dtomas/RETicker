@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<AppInfo>
+  <Summary>News-Ticker</Summary>
+  <About>
+    <Purpose>show rss/rdf feeds</Purpose>
+    <Version>0.4.5k (08-05-2006)</Version>
+    <Authors>Rene Ejury</Authors>
+    <License>GNU General Public License</License>
+    <Homepage>absorb.it</Homepage>
+  </About>
+</AppInfo>
