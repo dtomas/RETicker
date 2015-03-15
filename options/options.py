@@ -40,7 +40,8 @@ class Options(gobject.GObject):
 		pos = V.find(".") + 1
 		pos += V[pos:].find(".")
 		self.program = "RETicker_" + V[:pos]	+ user_conf
-		rox.setup_app_options(self.program)
+                self.site = 'absorb.it'
+		rox.setup_app_options(self.program, 'Options.xml', self.site)
 		
 		# debug Option
 		self.debug_mode = Option('debug_mode', '0') # 0 = off
@@ -117,15 +118,7 @@ class Options(gobject.GObject):
 		global proxy; proxy=Option('proxy', '')
 		self.browser= Option('browser', 'opera')
 		self.br_options= Option('br_options', '-newpage')
-		try:
-			path = os.environ['CHOICESPATH']
-			paths = path.split(':')
-		except KeyError:
-			paths = [ os.environ['HOME'] + '/Choices',
-				  '/usr/local/share/Choices',
-				  '/usr/share/Choices' ]
-		if not(os.path.exists(paths[0])): os.mkdir(paths[0])
-		cache = paths[0] + '/' + self.program
+                cache = rox.basedir.save_config_path(self.site, self.program)
 		if not(os.path.exists(cache)): os.mkdir(cache)
 		xml_cache_ = cache + "/xml_cache"
 		if not(os.path.exists(xml_cache_)): os.mkdir(xml_cache_)
