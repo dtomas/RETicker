@@ -83,6 +83,9 @@ class ActiveTooltip(g.Window):
 		self.Cons.connect(self.__Options, "refresh_ov_colors", self.refresh_colors)
 		self.Cons.connect(self.__Options, "refresh_tt_a_size", self.refresh_size)
 
+                self.set_property("skip-taskbar-hint", True)
+                self.set_property("skip-pager-hint", True)
+
 		### some local variables
 		self.__initialized = False     	### window is created (after getting some news)
 		self.__active = False		### Mouse is or was over window
