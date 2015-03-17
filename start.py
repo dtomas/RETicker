@@ -12,10 +12,14 @@
 # command line options                                  #
 #########################################################
 
-import findrox; findrox.version(1,9,13)
-import rox
 import sys
 import os
+
+sys.path.insert(
+    0, os.path.join(os.path.dirname(__file__), "rox-lib", "ROX-Lib2", "python")
+)
+
+import rox
 
 sys.path.insert(0,os.path.join(rox.app_dir, "main_win"))
 sys.path.insert(0,os.path.join(rox.app_dir, "icons"))
